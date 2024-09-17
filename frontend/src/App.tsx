@@ -1,11 +1,13 @@
 
 import './App.css'
 import { Header } from './components'
+import { useAuth } from './context/AuthContext'
 import { Chat, Home, Login, NotFound, Signup } from './pages'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
-  
+
+  console.log(useAuth()?.isLoggedIn)
 
   return (
     <main>
