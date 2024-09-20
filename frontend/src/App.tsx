@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
 
   console.log(useAuth()?.isLoggedIn)
-
+  const auth = useAuth()
   return (
     <main>
      <Header/>
@@ -16,7 +16,10 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/signup" element={<Signup/>}/>
-      <Route path="/chat" element={<Chat/>}/>
+     
+      {auth?.isLoggedIn && auth.user && (
+          <Route path="/chat" element={<Chat />} />
+        )}
       <Route path="*" element={<NotFound/>}/>
      </Routes>
     </main>
