@@ -5,6 +5,7 @@ type Props = {
   type: string;
   label: string;
 };
+
 const CustomizedInput = (props: Props) => {
   return (
     <TextField

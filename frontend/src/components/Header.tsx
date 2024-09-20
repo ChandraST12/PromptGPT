@@ -6,6 +6,7 @@ import NavigationLink from './shared/NavigationLink'
 const Header = () => {
 
   const auth = useAuth()
+  
   return (
     <AppBar 
     sx={{

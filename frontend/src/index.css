@@ -29,7 +29,7 @@ html,body{
 .MuiOutlinedInput-notchedOutline {
   border-color: white !important;
 }
-/* 
+
 .rotate {
   animation: rotation 8s infinite linear;
 }
@@ -41,5 +41,5 @@ html,body{
   to {
     transform: rotate(359deg);
   }
-} */
+}
 
