@@ -34,16 +34,16 @@ export const generateChatCompletion = async (
 
     // send all chats with new one to openAI API
     const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
+      apiKey: process.env.OPENAI_API_KEY 
     });
     
        
-    // New
-const chatResponse = await openai.chat.completions.create({
-  model: "gpt-3.5-turbo",
-  messages:[{"role":"user","content":"testing chat response "}],
-  // messages:,
-});
+  
+    const chatResponse = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages:[{"role":"user","content":"testing chat response "}],
+     
+    });
 console.log("latest chat response is here=> ",chatResponse.choices[0].message);
 
     user.chats.push(chatResponse.choices[0].message);
