@@ -1,5 +1,5 @@
 
-// New
+
 import OpenAI from 'openai';
 import  ChatCompletionMessageParamsNonStreaming from 'openai'
 
