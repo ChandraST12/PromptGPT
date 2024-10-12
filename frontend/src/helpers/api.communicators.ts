@@ -1,15 +1,8 @@
 import axios from "axios";
-// export const loginUser = async (email: string, password: string) => {
-//   const res = await axios.post("/user/login", { email, password });
-//   if (res.status !== 200) {
-//     throw new Error("Unable to login");
-//   }
-//   const data = await res.data;
-//   return data;
-// };
+
 export const loginUser = async (email: string, password: string) => {
   const res = await axios.post(
-   `${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/login`, 
+   `/user/login`, 
     { email, password }, 
     { withCredentials: true } // Include credentials
   );
@@ -25,7 +18,7 @@ export const signupUser = async (
   email: string,
   password: string
 ) => {
-  const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/signup`, { name, email, password },{ withCredentials: true } );
+  const res = await axios.post(`/user/signup`, { name, email, password },{ withCredentials: true } );
   if (res.status !== 201) {
     throw new Error("Unable to Signup");
   }
@@ -34,7 +27,7 @@ export const signupUser = async (
 };
 
 export const checkAuthStatus = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/auth-status`,{ withCredentials: true } );
+  const res = await axios.get(`/user/auth-status`,{ withCredentials: true } );
   if (res.status !== 200) {
     throw new Error("Unable to authenticate");
   }
@@ -43,7 +36,7 @@ export const checkAuthStatus = async () => {
 };
 
 export const sendChatRequest = async (message: string) => {
-  const res = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/chat/new`, { message },{ withCredentials: true } );
+  const res = await axios.post(`/chat/new`, { message },{ withCredentials: true } );
   if (res.status !== 200) {
     throw new Error("Unable to send chat");
   }
@@ -52,7 +45,7 @@ export const sendChatRequest = async (message: string) => {
 };
 
 export const getUserChats = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/chat/all-chats`,{ withCredentials: true } );
+  const res = await axios.get(`/chat/all-chats`,{ withCredentials: true } );
   if (res.status !== 200) {
     throw new Error("Unable to send chat");
   }
@@ -61,7 +54,7 @@ export const getUserChats = async () => {
 };
 
 export const deleteUserChats = async () => {
-  const res = await axios.delete(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/chat/delete`,{ withCredentials: true } );
+  const res = await axios.delete(`/chat/delete`,{ withCredentials: true } );
   if (res.status !== 200) {
     throw new Error("Unable to delete chats");
   }
@@ -70,7 +63,7 @@ export const deleteUserChats = async () => {
 };
 
 export const logoutUser = async () => {
-  const res = await axios.get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/user/logout`,{ withCredentials: true } );
+  const res = await axios.get(`/user/logout`,{ withCredentials: true } );
   if (res.status !== 200) {
     throw new Error("Unable to delete chats");
   }
