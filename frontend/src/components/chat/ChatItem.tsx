@@ -38,8 +38,6 @@ const Chatitem = ({
     role: "user" | "assistant";
   })=> {
  const auth = useAuth()
-
- console.log("inside chat item",role,content);
     const messageBlocks = extractCodeFromString(content);
 return role == "assistant" ? (
   
@@ -88,9 +86,8 @@ return role == "assistant" ? (
       >
         <Avatar sx={{ ml: "0", bgcolor: "black", color: "white" }}>
               {auth?.user?.name[0]}
-              {/* {auth?.user?.name.split(" ")[1][0]} */}
-          {/*
-           */}
+             
+          
         </Avatar>
         <Box>
           {!messageBlocks && (
