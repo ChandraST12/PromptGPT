@@ -168,8 +168,8 @@ useEffect(()=>{
           }}
         >
           {chatMessages.map((chat, index) => (
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
+           
+            
             <ChatItem content={chat.content} role={chat.role} key={index} />
           ))}
         </Box>
