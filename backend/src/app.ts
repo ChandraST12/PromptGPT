@@ -7,7 +7,7 @@ config()
 const app = express();
 
 // middlewares
-app.use(cors({origin:process.env.FRONTEND_URL,credentials:true}))
+app.use(cors({origin:'https://prompt-gpt-4s8s.vercel.app/',credentials:true}))
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
