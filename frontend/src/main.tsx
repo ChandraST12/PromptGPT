@@ -9,7 +9,7 @@ import axios from 'axios'
 import { Toaster } from 'react-hot-toast'
 
 
-axios.defaults.baseURL = 'http://localhost:5000/api/v1';
+axios.defaults.baseURL = 'https://prompt-gpt-beryl.vercel.app/api/v1';
 axios.defaults.withCredentials = true;
 
 const theme = createTheme({

@@ -11,8 +11,9 @@ const app = express();
 // middlewares
 app.use(
   cors({
-    origin: "https://prompt-gpt-4s8s.vercel.app/",
-    methods: ["GET", "POST"],
+    origin: "https://prompt-gpt-4s8s.vercel.app",
+    allowedHeaders:'Content-Type,Authorization',
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
     credentials: true,
   })
 );
