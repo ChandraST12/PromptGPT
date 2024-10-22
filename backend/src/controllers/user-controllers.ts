@@ -39,7 +39,7 @@ export const getAllUsers = async (
       // create token and store cookie
       res.clearCookie(COOKIE_NAME, {
         httpOnly: true,
-        domain: "localhost",
+        domain: "prompt-gpt-4s8s.vercel.app",
         signed: true,
         path: "/",
       });
@@ -49,10 +49,12 @@ export const getAllUsers = async (
       expires.setDate(expires.getDate() + 7);
       res.cookie(COOKIE_NAME, token, {
         path: "/",
-        domain: "localhost",
+        domain: "prompt-gpt-4s8s.vercel.app", // Match domain exactly
         expires,
         httpOnly: true,
         signed: true,
+        secure: true, // Ensure this is set for HTTPS
+        sameSite: 'none'  // Required for cross-site cookie in modern browsers
       });
   
       return res
@@ -88,7 +90,7 @@ export const getAllUsers = async (
   
       res.clearCookie(COOKIE_NAME, {
         httpOnly: true,
-        domain: "localhost",
+        domain: "prompt-gpt-4s8s.vercel.app",
         signed: true,
         path: "/",
       });
@@ -96,13 +98,17 @@ export const getAllUsers = async (
       const token = createToken(user._id.toString(), user.email, "7d");
       const expires = new Date();
       expires.setDate(expires.getDate() + 7);
+      
       res.cookie(COOKIE_NAME, token, {
         path: "/",
-        domain: "localhost",
+        domain: "prompt-gpt-4s8s.vercel.app", // Match domain exactly
         expires,
         httpOnly: true,
         signed: true,
+        secure: true, // Ensure this is set for HTTPS
+        sameSite: 'none'  // Required for cross-site cookie in modern browsers
       });
+      
        
       return res
         .status(200)
@@ -161,7 +167,7 @@ export const getAllUsers = async (
   
       res.clearCookie(COOKIE_NAME, {
         httpOnly: true,
-        domain: "localhost",
+        domain: "prompt-gpt-4s8s.vercel.app", 
         signed: true,
         path: "/",
       });
