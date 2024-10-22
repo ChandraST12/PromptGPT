@@ -97,6 +97,9 @@ export const getAllUsers = async (
       });
   
       const token = createToken(user._id.toString(), user.email, "7d");
+     
+      console.log('Generated Token:', token);
+
       const expires = new Date();
       expires.setDate(expires.getDate() + 7);
       
