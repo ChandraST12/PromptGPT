@@ -53,7 +53,8 @@ export const getAllUsers = async (
         expires,
         httpOnly: true,
         signed: true,
-        secure: true, // Ensure this is set for HTTPS
+        secure: process.env.NODE_ENV === 'production',
+        // Ensure this is set for HTTPS
         sameSite: 'none'  // Required for cross-site cookie in modern browsers
       });
   
@@ -105,7 +106,8 @@ export const getAllUsers = async (
         expires,
         httpOnly: true,
         signed: true,
-        secure: true, // Ensure this is set for HTTPS
+        secure: process.env.NODE_ENV === 'production',
+        // Ensure this is set for HTTPS
         sameSite: 'none'  // Required for cross-site cookie in modern browsers
       });
       
