@@ -3,17 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-
-   "scripts": {
-  "build": "npm install --include=dev && npx tsc",
-  "start": "node dist/index.js",
-  "dev": "concurrently \"NODE_OPTIONS='--max-old-space-size=4096' npx tsc --watch\" \"nodemon -q dist/index.js\""
+  "scripts": {
+    "build": "npm install --include=dev && npx tsc",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"NODE_OPTIONS='--max-old-space-size=4096' npx tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@google/generative-ai": "^0.19.0",
+    "@google/generative-ai": "^0.21.0",
     "bcrypt": "^5.1.1",
     "concurrently": "^9.0.1",
     "cookie-parser": "^1.4.6",
@@ -22,9 +21,7 @@
     "express": "^4.21.0",
     "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.6.2",
-    "morgan": "^1.10.0",
-    "openai": "^4.62.1"
+    "mongoose": "^8.6.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
