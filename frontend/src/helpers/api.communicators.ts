@@ -1,4 +1,8 @@
 import axios from "axios";
+ 
+const getAuthToken = () => {
+  return localStorage.getItem('token'); // Assuming you store the token in localStorage
+};
 
 export const loginUser = async (email: string, password: string) => {
   const res = await axios.post(
@@ -9,6 +13,7 @@ export const loginUser = async (email: string, password: string) => {
     throw new Error("Unable to login");
   }
   const data = await res.data;
+  localStorage.setItem('token', data.token);// Store token in localStorage
   return data;
 };
 
@@ -35,7 +40,12 @@ export const checkAuthStatus = async () => {
 };
 
 export const sendChatRequest = async (message: string) => {
-  const res = await axios.post(`/chat/new`, { message });
+  const token = getAuthToken();
+  const res = await axios.post(`/chat/new`, { message }, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   if (res.status !== 200) {
     throw new Error("Unable to send chat");
   }
@@ -44,7 +54,12 @@ export const sendChatRequest = async (message: string) => {
 };
 
 export const getUserChats = async () => {
-  const res = await axios.get(`/chat/all-chats` );
+  const token = getAuthToken();
+  const res = await axios.get(`/chat/all-chats`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   if (res.status !== 200) {
     throw new Error("Unable to send chat");
   }
@@ -53,7 +68,12 @@ export const getUserChats = async () => {
 };
 
 export const deleteUserChats = async () => {
-  const res = await axios.delete(`/chat/delete` );
+  const token = getAuthToken();
+  const res = await axios.delete(`/chat/delete`,{
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  } );
   if (res.status !== 200) {
     throw new Error("Unable to delete chats");
   }
@@ -62,10 +82,16 @@ export const deleteUserChats = async () => {
 };
 
 export const logoutUser = async () => {
-  const res = await axios.get(`/user/logout` );
+  const token = getAuthToken();
+  const res = await axios.get(`/user/logout`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   if (res.status !== 200) {
     throw new Error("Unable to delete chats");
   }
+  localStorage.removeItem('token'); // Clear token on logout
   const data = await res.data;
   return data;
 };
