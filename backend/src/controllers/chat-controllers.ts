@@ -1,7 +1,6 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// import OpenAI from 'openai';
-// import  ChatCompletionMessageParamsNonStreaming from 'openai'
+
 
 
 import { NextFunction, Request, Response } from "express";
